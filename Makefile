@@ -1,6 +1,6 @@
 all:
-	docker build --pull -t sectoid/debian-build-docker:stretch-backports amd64/stretch-backports
-	docker build --pull -t sectoid/debian-build-docker:stretch-backports-i386 i386/stretch-backports
+	docker build --pull -t sectoid/debian-build-docker:stretch-backports -f amd64/stretch-backports/Dockerfile .
+	docker build --pull -t sectoid/debian-build-docker:stretch-backports-i386 -f i386/stretch-backports/Dockerfile .
 
 push:
 	docker push sectoid/debian-build-docker:stretch-backports

@@ -5,7 +5,7 @@ MAINTAINER Gleb Golubitsky <sectoid@gnolltech.org>
 # Non-interactive frontend for debian stuff to reduce error noise
 ENV DEBIAN_FRONTEND noninteractive
 
-COPY stretch-backports.list /etc/apt/sources.list.d/
+COPY common/stretch-backports.list /etc/apt/sources.list.d/
 
 # Install basic essentials
 RUN apt -y update \
@@ -16,7 +16,7 @@ RUN apt -y update \
  && dpkg-reconfigure locales \
  && /usr/sbin/update-locale LANG=en_US.UTF-8
 
-COPY build.sh /usr/local/bin/gbp-docker-buildpackage
+COPY common/build.sh /usr/local/bin/gbp-docker-buildpackage
 
 WORKDIR /work/package
 
