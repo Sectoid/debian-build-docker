@@ -16,6 +16,8 @@ RUN apt -y update \
  && dpkg-reconfigure locales \
  && /usr/sbin/update-locale LANG=en_US.UTF-8
 
+COPY build.sh /usr/local/bin/gbp-docker-buildpackage
+
 WORKDIR /work/package
 
 CMD ["/bin/bash"]
